@@ -1,23 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import vikingasBanner from "../images/vikingas_banner.png";
+// import vikingasBanner from "../images/vikingas_banner.png
 import vikingas from "../images/vikingas_epic.png";
+// import "../styles/global.css";
 
 const services: { name: string; price: string }[] = [
+  { name: "Color", price: "$1890" },
   { name: "Brushing", price: "$690" },
-  { name: "Mascaras", price: "$590" },
-  { name: "Baños de crema", price: "$390" },
-  { name: "Alisados", price: "$1800" },
-  { name: "Keratina, Botox, Bionutrición", price: "$990" },
+  { name: "Tratamientos", price: "$890" },
+  { name: "Head Spa Capilar", price: "$2470" },
+  { name: "Keratina, Botox, Bionutrición", price: "$1890" },
   { name: "Uñas Soft Gel", price: "$800" },
-  { name: "Lifting de Pestañas", price: "$1000" },
+  { name: "Lifting de Pestañas", price: "$990" },
+  { name: "Masajes", price: "$1500" },
 ];
 const year = new Date().getFullYear();
 ---
 
 <Layout title="VIKINGAS - Ritual de Belleza">
-  <header>
+  <header class="px-auto">
     <Image
       src={vikingas}
       alt="Vikingas Banner"
