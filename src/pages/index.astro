@@ -4,13 +4,19 @@ import { Image } from "astro:assets";
 // import vikingasBanner from "../images/vikingas_banner.png
 import vikingas from "../images/vikingas_epic.png";
 import Hero from "../components/Hero.astro";
+import MarkdownContent from "../components/MarkdownContent";
 // import "../styles/global.css";
 
-const services: { name: string; price: string }[] = [
+const services: { name: string; price: string; description?: string }[] = [
   { name: "Color", price: "$1.890" },
   { name: "Brushing", price: "$690" },
   { name: "Tratamientos", price: "$890" },
-  { name: "Head Spa Capilar", price: "$2.470" },
+  { name: "Head Spa Capilar", price: "$1.800" },
+  {
+    name: "Head Spa Premium",
+    price: "$2.780",
+    description: "Incluye masaje corporal y limpieza facial",
+  },
   { name: "Keratina, Botox, Bionutrición", price: "$1.890" },
   { name: "Uñas Soft Gel", price: "$800" },
   { name: "Lifting de Pestañas", price: "$990" },
@@ -53,12 +59,20 @@ const year = new Date().getFullYear();
       <h2 class="list-title">
         Tu <span class="text-gradient">inversión</span> en cuidarte es
       </h2>
-      <ul>
+      <ul class="p-4">
         {
           services.map((service) => (
-            <li>
-              <span>{service.name}</span>
-              <span>{service.price}</span>
+            <li class="px-2">
+              <div class="flex flex-col px-2">
+                <span>{service.name}</span>
+                <span class="font-extralight text-sm leading-tight text-gray-300 text-balance">
+                  <MarkdownContent
+                    content={service?.description || ""}
+                    client:load
+                  />
+                </span>
+              </div>
+              <span class="px-2">{service.price}</span>
             </li>
           ))
         }
